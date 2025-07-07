@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERATECH - Demonstre seu Interesse</title>
+    
+    <!-- Link para o arquivo de Estilos (CSS) -->
+    <link rel="stylesheet" href="estilos.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Container Principal -->
+    <div class="container">
+        
+        <header>
+            <!-- Logo da INTERATECH (arquivo local) -->
+            <img src="logo.png" alt="Logo da INTERATECH FORMAÇÃO PROFISSIONAL" class="logo">
+            
+            <h1>Abre as portas para o seu futuro profissional!</h1>
+        </header>
+
+        <main>
+            <!-- Card do Formulário -->
+            <div class="form-card">
+                <h2>Vagas para Alunos da Rede FEVRE</h2>
+                <p>Preencha o formulário abaixo para demonstrar seu interesse.</p>
+
+                <!-- Formulário -->
+                <form id="interest-form">
+                    
+                    <div class="input-group">
+                        <label for="studentName">Nome completo do Aluno(a)</label>
+                        <input type="text" id="studentName" name="studentName" placeholder="Digite o nome completo do aluno">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="studentPhone">Telefone do Aluno(a)</label>
+                        <input type="tel" id="studentPhone" name="studentPhone" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="guardianName">Nome do Responsável</label>
+                        <input type="text" id="guardianName" name="guardianName" placeholder="Digite o nome do pai, mãe ou responsável">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="guardianPhone">Telefone do Responsável</label>
+                        <input type="tel" id="guardianPhone" name="guardianPhone" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="shift">Turno que estuda</label>
+                            <select id="shift" name="shift">
+                                <option value="" disabled selected>Selecione o turno</option>
+                                <option value="Manhã">Manhã</option>
+                                <option value="Tarde">Tarde</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="grade">Ano/Série que estuda</label>
+                            <select id="grade" name="grade">
+                                <option value="" disabled selected>Selecione o ano/série</option>
+                                <option value="8º Ano">8º Ano</option>
+                                <option value="9º Ano">9º Ano</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input id="interest-check" name="interest-check" type="checkbox">
+                        <label for="interest-check">Sou aluno(a) da Rede FEVRE entre o 8º e 9º e tenho interesse nos cursos.</label>
+                    </div>
+
+                    <div id="error-message" class="error-message" role="alert">
+                        <p>Por favor, preencha todos os campos e confirme o interesse para continuar.</p>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        Enviar Interesse via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 INTERATECH FORMAÇÃO PROFISSIONAL. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Link para o arquivo de JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
