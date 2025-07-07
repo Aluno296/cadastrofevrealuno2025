@@ -1,7 +1,7 @@
 // script.js - Versão ideal
 
 document.addEventListener('DOMContentLoaded', () => {
-  const SHEET_URL_INTEREST = 'https://script.google.com/macros/s/AKfycbzRGQJxEAhLvPC1Ypf5vih-kVkNYRY78RH7BaILYUQLfa7tT464gpz__omC-HCqVTB2lQ/exec';
+  const SHEET_URL_INTEREST = 'https://script.google.com/macros/s/AKfycbyjwwhl6SF0iMD606UD6DjIjCk4BOjfgyVPP-FcSuECWXR6xnp9PhawdChous6zJCuiPA/exec';
   const SHEET_URL_CONTACT  = 'https://script.google.com/macros/s/198gL-w5Yk1vT4lV0M9Jv9WHs1xdeOR2GWV3LOrBLlPkjHCoCa6urMtdo/exec';
   const WHATSAPP_NUMBER    = '5524981490144';
 
