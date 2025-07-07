@@ -2,20 +2,17 @@
 console.log('✅ script.js carregado e executando');
 
 document.addEventListener('DOMContentLoaded', () => {
-  const SHEET_URL_INTEREST = 'https://script.google.com/macros/s/AKfycbyjwwhl6SF0iMD606UD6DjIjCk4BOjfgyVPP-FcSuECWXR6xnp9PhawdChous6zJCuiPA/exec';
-  const SHEET_URL_CONTACT  = 'https://script.google.com/macros/s/198gL-w5Yk1vT4lV0M9Jv9WHs1xdeOR2GWV3LOrBLlPkjHCoCa6urMtdo/exec';
-  const WHATSAPP_NUMBER    = '5524981490144';
+  // URL única do Apps Script Web App (mesma para ambos os formulários)
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbx0AemrwMZLMgACX0JcqX6xTZf84ow8T-x0Fb5hTNNkh9Sn6ky3IrwJYwz2uaoazAl5JQ/exec';
+  const WHATSAPP_NUMBER = '5524981490144';
 
   const interestForm = document.getElementById('interest-form');
-  const contactForm  = document.getElementById('meuForm');
+  const contactForm = document.getElementById('meuForm');
 
-  // Função genérica para enviar dados ao Google Sheets
-  async function sendToSheet(data, url) {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
+  // Função genérica para enviar dados ao Google Sheets via GET para evitar CORS
+  async function sendToSheet(data) {
+    const qs = new URLSearchParams(data).toString();
+    const response = await fetch(`${SHEET_URL}?${qs}`);
     const json = await response.json();
     if (json.result !== 'success') throw new Error(json.message || 'Falha desconhecida');
     return json;
@@ -65,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (errorDiv) errorDiv.style.display = 'none';
 
       try {
-        await sendToSheet(payload, SHEET_URL_INTEREST);
+        await sendToSheet(payload);
         // Envia WhatsApp somente após gravar na planilha
         window.open(buildWhatsAppUrl(payload), '_blank');
         interestForm.reset();
@@ -81,15 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', async event => {
       event.preventDefault();
       console.log('🔔 Handler de submit foi disparado!', event);
-      event.preventDefault();
+
       const payload = {
-        nome:    contactForm.querySelector('input[name="nome"]').value.trim(),
-        email:   contactForm.querySelector('input[name="email"]').value.trim(),
+        nome: contactForm.querySelector('input[name="nome"]').value.trim(),
+        email: contactForm.querySelector('input[name="email"]').value.trim(),
         mensagem: contactForm.querySelector('textarea[name="mensagem"]').value.trim()
       };
 
       try {
-        await sendToSheet(payload, SHEET_URL_CONTACT);
+        await sendToSheet(payload);
         alert('Mensagem de contato enviada com sucesso! 🚀');
         contactForm.reset();
       } catch (err) {
