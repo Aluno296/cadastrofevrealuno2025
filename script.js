@@ -2,6 +2,38 @@
 console.log('✅ script.js (JSONP) carregado');
 
 document.addEventListener('DOMContentLoaded', () => {
+  const interestForm = document.getElementById('interest-form');
+  console.log('interestForm encontrado?', interestForm);
+
+  if (interestForm) {
+    interestForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      console.log('🔔 submit interceptado!');
+
+      // coleta os dados
+      const payload = {
+        studentName:  document.getElementById('studentName').value.trim(),
+        studentPhone: document.getElementById('studentPhone').value.trim(),
+        guardianName: document.getElementById('guardianName').value.trim(),
+        guardianPhone: document.getElementById('guardianPhone').value.trim(),
+        shift:        document.getElementById('shift').value,
+        grade:        document.getElementById('grade').value,
+      };
+      console.log('payload:', payload);
+
+      try {
+        const resp = await sendToSheetJSONP(payload);
+        console.log('JSONP response:', resp);
+        window.open(buildWhatsAppUrl(payload), '_blank');
+      } catch (err) {
+        console.error('Erro JSONP:', err);
+        alert('Falha no envio: ' + err.message);
+      }
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
   const SHEET_URL     = 'https://script.google.com/macros/s/AKfycbx0AemrwMZLMgACX0JcqX6xTZf84ow8T-x0Fb5hTNNkh9Sn6ky3IrwJYwz2uaoazAl5JQ/exec';
   const interestForm  = document.getElementById('interest-form');
   const WHATSAPP_NUM  = '5524981490144';
