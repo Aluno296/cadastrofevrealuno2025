@@ -79,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', async event => {
       event.preventDefault();
+      console.log('🔔 Handler de submit foi disparado!', event);
+      event.preventDefault();
       const payload = {
         nome:    contactForm.querySelector('input[name="nome"]').value.trim(),
         email:   contactForm.querySelector('input[name="email"]').value.trim(),
