@@ -30,26 +30,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2) Monta a URL do WhatsApp
   function buildWhatsAppUrl(p) {
+    const WHATSAPP_NUM = '5524981490144';  // seu número internacional
     const message = `
-    Olá! 👋 Sou da Rede FEVRE e quero ganhar um curso... Poderiam me passar mais informações?
+  Olá! 👋 Sou da Rede FEVRE e quero ganhar um curso... Poderiam me passar mais informações?
 
-    *ALUNO:*
-    Nome: ${p.studentName}
-    Telefone: ${p.studentPhone}
+  *ALUNO:*
+  Nome: ${p.studentName}
+  Telefone: ${p.studentPhone}
 
-    *RESPONSÁVEL:*
-    Nome: ${p.guardianName}
-    Telefone: ${p.guardianPhone}
+  *RESPONSÁVEL:*
+  Nome: ${p.guardianName}
+  Telefone: ${p.guardianPhone}
 
-    *ESCOLAR:*
-    Turno: ${p.shift}
-    Ano/Série: ${p.grade}
+  *ESCOLAR:*
+  Turno: ${p.shift}
+  Ano/Série: ${p.grade}
 
-    Aguardo mais informações!
-      `.trim();
+  Aguardo mais informações!
+    `.trim();
 
-      return `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(message)}`;
-    }
+    // encodeURIComponent já cuidará de tudo: espaços, quebras de linha, asteriscos
+    return `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(message)}`;
+  }
 
   // 3) Listener de submit
   if (interestForm) {
