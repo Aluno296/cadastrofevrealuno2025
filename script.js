@@ -1,4 +1,5 @@
 // script.js - Versão ideal
+console.log('✅ script.js carregado e executando');
 
 document.addEventListener('DOMContentLoaded', () => {
   const SHEET_URL_INTEREST = 'https://script.google.com/macros/s/AKfycbyjwwhl6SF0iMD606UD6DjIjCk4BOjfgyVPP-FcSuECWXR6xnp9PhawdChous6zJCuiPA/exec';
