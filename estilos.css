@@ -1,0 +1,191 @@
+/* --- VARIÁVEIS DE COR E CONFIGURAÇÕES GLOBAIS --- */
+:root {
+    --primary-red: #d90000; /* Vermelho principal da marca */
+    --dark-text: #1a1a1a;   /* Preto para textos principais */
+    --secondary-text: #4d4d4d; /* Cinza escuro para textos secundários */
+    --background-gray: #f4f4f5; /* Cinza claro para o fundo */
+    --white: #ffffff;
+    --border-color: #e5e7eb;
+    --success-green: #16a34a;
+}
+
+/* --- RESET BÁSICO E ESTILOS GLOBAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-gray);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* --- CABEÇALHO --- */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo {
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: var(--secondary-text);
+    font-weight: 500;
+}
+
+/* --- CARD DO FORMULÁRIO --- */
+.form-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.form-card h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 0.5rem;
+}
+
+.form-card p {
+    text-align: center;
+    color: var(--secondary-text);
+    margin-bottom: 2rem;
+}
+
+/* --- GRUPOS DE INPUT E LABELS --- */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-text);
+}
+
+input[type="text"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--background-gray);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 3px rgba(217, 0, 0, 0.2);
+}
+
+/* --- LAYOUT EM LINHA PARA TURN/SÉRIE --- */
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Para telas menores */
+}
+
+.form-row .input-group {
+    flex: 1;
+    min-width: 200px; /* Garante que não fiquem muito espremidos */
+}
+
+/* --- CHECKBOX --- */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 0.75rem;
+    accent-color: var(--primary-red);
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+/* --- MENSAGEM DE ERRO --- */
+.error-message {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    display: none; /* Escondido por padrão */
+}
+
+/* --- BOTÃO DE ENVIO --- */
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--success-green);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px -5px rgba(22, 163, 74, 0.4);
+}
+
+.submit-button:hover {
+    background-color: #15803d;
+    transform: translateY(-2px);
+}
+
+/* --- RODAPÉ --- */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .form-card {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
